@@ -16,6 +16,7 @@ const News = ({ simplified }) => {
 
   // Fetch news from API
   const { data: cryptoNews, isFetching, error } = useGetCryptoNewsQuery({ count });
+  console.log("Sample Article:", cryptoNews?.result[0]);
   console.log("News Data:", cryptoNews); // ✅ Corrected log
 
   const { data } = useGetCryptosQuery(100);
@@ -67,43 +68,31 @@ const News = ({ simplified }) => {
           </Col>
         )}
 
-        {newsArticles.map((news, i) => (
-          <Col xs={24} sm={12} lg={8} key={i}>
-            <a href={news.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-            <Card
-  hoverable
-  className="news-card"
-  cover={
-    <img
-      src={news?.imgUrl || defaultImage} // ✅ Now using imgUrl from API
-      alt="news"
-      onError={(e) => (e.target.src = defaultImage)} // ✅ Fallback to default image
-      // style={{ height: '150px', objectFit: 'cover' }} // ✅ Ensure consistent image size
-    />
-  }
->
-
-                <div className="news-image-container">
-                  <Title className="news-title" level={4}>{news.title}</Title>
-                </div>
-                <p>
-  {news.description?.length > 100
-    ? `${news.description.substring(0, 100)}...`
-    : news.description}
-</p>
-
-                <div className="provider-container"style={{justifyContent:'space-between'}} >
-                  
-                <a href={news.link} target="_blank" rel="noopener noreferrer" className="read-more">
-  Read More
-</a>
-                  <Text>{moment(news.feedDate).format("MMMM D, YYYY")}</Text>
-
-                </div>
-              </Card>
-            </a>
-          </Col>
-        ))}
+{newsArticles.map((news, i) => (
+  <Col xs={24} sm={12} lg={8} key={i}>
+    <a href={news.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+      <Card
+        hoverable
+        className="news-card"
+        cover={
+          <img
+            src={news?.imgUrl || defaultImage}
+            alt="news"
+            onError={(e) => (e.target.src = defaultImage)}
+          />
+        }
+      >
+        <div className="news-image-container">
+          <Title className="news-title" level={4}>{news.title}</Title>
+        </div>
+        <div className="provider-container" style={{ justifyContent: 'space-between' }}>
+          <Text className="read-more">Read More</Text>
+          <Text>{moment(news.feedDate).format("MMMM D, YYYY")}</Text>
+        </div>
+      </Card>
+    </a>
+  </Col>
+))}
       </Row>
     </>
   );

@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import 'dotenv/config';
 
 const cryptoApiHeaders = {
   'x-rapidapi-host': process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
@@ -27,7 +26,7 @@ export const cryptoApi = createApi({
       query: ({ coinId, timePeriod }) => 
         createRequest(`/coin/${coinId}/history?timePeriod=${timePeriod}`),
     }),
-    getCryptoStats: builder.query({  // New endpoint!
+    getCryptoStats: builder.query({
       query: () => createRequest(`/stats`),
     }),
   }),
@@ -38,5 +37,5 @@ export const {
   useGetExchangesQuery,
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
-  useGetCryptoStatsQuery,  // New hook!
+  useGetCryptoStatsQuery,
 } = cryptoApi;
