@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Navbar, Exchanges, Homepage, Cryptocurrencies, News, CryptoDetails } from './components';
 import './App.css';
@@ -38,8 +38,4 @@ const App = () => {
   );
 };
 
-export default () => (
-  <BrowserRouter basename="/cryptoapp">
-    <App />
-  </BrowserRouter>
-);
+export default App;
