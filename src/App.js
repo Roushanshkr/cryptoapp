@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Navbar, Exchanges, Homepage, Cryptocurrencies, News, CryptoDetails } from './components';
 import './App.css';
 
 const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('darkMode') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', isDarkMode);
+  }, [isDarkMode]);
+
   return (
-    <div className='app'>
+    <div className={`app ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className='navbar'>
-        <Navbar />
+        <Navbar setIsDarkMode={setIsDarkMode} />
       </div>
       <div className='main'>
         <Layout>
