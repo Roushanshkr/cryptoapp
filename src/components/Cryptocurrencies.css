@@ -1,0 +1,10 @@
+.crypto-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+}
+
+.crypto-select {
+      width: 150px !important;
+      /* Matches Ant Design style */
+}

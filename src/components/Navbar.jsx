@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Menu, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, BulbTwoTone } from '@ant-design/icons';
+import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, BulbTwoTone, RocketOutlined} from '@ant-design/icons';
+// import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, BulbTwoTone, RocketOutlined } from '@ant-design/icons';
 
 import icon from '../images/cryptocurrency.jpg';
 
@@ -45,21 +46,25 @@ const Navbar = ({ setIsDarkMode }) => {
         </Button>
       </div>
       {activeMenu && (
-        <Menu theme={isDarkMode ? "dark" : "light"}>
-          <Menu.Item icon={<HomeOutlined />}>
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item icon={<FundOutlined />}>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-          </Menu.Item>
-          <Menu.Item icon={<MoneyCollectOutlined />}>
-            <Link to="/exchanges">Exchanges</Link>
-          </Menu.Item>
-          <Menu.Item icon={<BulbOutlined />}>
-            <Link to="/news">News</Link>
-          </Menu.Item>
-        </Menu>
-      )}
+  <Menu theme={isDarkMode ? "dark" : "light"}>
+    <Menu.Item icon={<HomeOutlined />}>
+      <Link to="/">Home</Link>
+    </Menu.Item>
+    <Menu.Item icon={<FundOutlined />}>
+      <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+    </Menu.Item>
+    <Menu.Item icon={<MoneyCollectOutlined />}>
+      <Link to="/exchanges">Exchanges</Link>
+    </Menu.Item>
+    <Menu.Item icon={<BulbOutlined />}>
+      <Link to="/news">News</Link>
+    </Menu.Item>
+    <Menu.Item icon={<RocketOutlined />}>
+      <Link to="/meme-radar">Meme Radar</Link>
+    </Menu.Item>
+  </Menu>
+)}
+      
     </div>
   );
 };
