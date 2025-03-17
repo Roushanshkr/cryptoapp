@@ -53,7 +53,7 @@ const CryptoDetails = () => {
         onClick={() => navigate('/cryptocurrencies')}
         style={{ marginBottom: 16 }}
       >
-        Previous
+        Back
       </Button>
       <Col className="coin-heading-container">
         <Title level={2} className="coin-name">{cryptoDetails?.name} ({cryptoDetails?.symbol}) Price</Title>
