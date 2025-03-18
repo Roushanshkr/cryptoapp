@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const API_KEY = '3CrxswCvKY5MP7XAmacAm1nD9fKMUgJsmybuwgVEeJE=';
+const API_KEY = process.env.REACT_APP_COINSTATS_API_KEY || 'fallback-key-if-needed';
 
 export const cryptoNewsApi = createApi({
   reducerPath: 'cryptoNewsApi',
